@@ -22,11 +22,6 @@ if [ ! -f /etc/graphite_provisioned_at ]
   apt-get install -y libffi-dev
   pip install cairocffi
 
-  # Install Selenium
-  npm install selenium-standalone@latest -g
-  selenium-standalone install
-  xvfb-run --server-args="-screen 0, 1366x768x24" selenium-standalone start &
-
   # Install Graphite
   pip install https://github.com/graphite-project/ceres/tarball/master
   pip install whisper
@@ -52,12 +47,12 @@ if [ ! -f /etc/graphite_provisioned_at ]
 
   chown -R www-data:www-data /opt/graphite/storage
 
-  apt-get install -y libapache2-mod-wsgi
-
   # Create docroot directory for sitespeed.io generated files to be browseable
   mkdir /var/www/sitespeedio
   mkdir /var/www/sitespeedio/sitespeed-result
   chown -R www-data:www-data /var/www/sitespeedio
+
+  apt-get install -y libapache2-mod-wsgi
 
   # Add a sample bash script to run on cron
   cp /home/vagrant/provisioning-files/sample_cron.sh /home/vagrant/sample_cron.sh
