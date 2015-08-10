@@ -50,7 +50,9 @@ if [ ! -f /etc/sitespeed_provisioned_at ]
   npm install selenium-standalone@latest -g
   selenium-standalone install
   cp /home/vagrant/provisioning-files/selenium-start.sh /bin/
-  chown +x /bin/selenium-start.sh
+  cd /bin
+  wget https://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar
+  chmod +x /bin/selenium-start.sh
   /bin/selenium-start.sh
   cp /home/vagrant/provisioning-files/selenium.conf /etc/init/
 
