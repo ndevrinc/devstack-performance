@@ -1,17 +1,19 @@
 Devstack Performance
 ====================
 
-`devstack-performance` is a Vagrant provisionion script that sets up a full performance monitoring stack on your local environment.
+`devstack-performance` is a Vagrant provisioning script that sets up a full performance monitoring stack on your local environment.
 
 Installation
 ------------
 Here's the steps and results you'll immediately see. It's possible the instructions below become outdated as we continue to update the project. The most accurate documentation will always live on GitHub.
+
 ### 1) Install Vagrant
 While this can generally be a very quick process, each local environment is different and the best docs are on the vagrant site: http://docs.vagrantup.com/v2/installation/.
+
 ### 2) Install Vagrant Host Manager
 We use this simply because it adds entries for graphite, grafana and sitespeed to point to your VM's IP address automatically when you provision the VM.
-
 https://github.com/smdahlen/vagrant-hostmanager
+
 ### 3) Clone Devstack Performance Repository
 This contains everything needed to spin up an instance on your local machine, it currently requires 2 Gb of memory and takes about 7-10 minutes to provision the VM the first time.
 ```
