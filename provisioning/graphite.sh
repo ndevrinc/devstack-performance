@@ -33,7 +33,7 @@ if [ ! -f /etc/graphite_provisioned_at ]
   cp carbon.conf.example carbon.conf
   cp storage-schemas.conf.example storage-schemas.conf
   cp /opt/graphite/conf/graphite.wsgi.example /opt/graphite/conf/graphite.wsgi
-  PYTHONPATH=/opt/graphite/webapp django-admin.py syncdb --noinput --settings=graphite.settings
+  PYTHONPATH=/opt/graphite/webapp django-admin.py migrate --run-syncdb --noinput --settings=graphite.settings
 
   # Need to start carbon for graphite to be able to collect data
   /opt/graphite/bin/carbon-cache.py start
