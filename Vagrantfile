@@ -53,6 +53,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.path = "provisioning/grafana.sh"
     s.keep_color = true
   end
+  config.vm.provision "shell" do |s|
+    s.path = "provisioning/security.sh"
+    s.keep_color = true
+  end
 
   if Vagrant.has_plugin?("vagrant-cachier")
     # Configure cached packages to be shared between instances of the same base box.
