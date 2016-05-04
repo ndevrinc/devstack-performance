@@ -28,10 +28,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./provisioning/files", "/home/vagrant/provisioning-files/", type: "nfs"
 
 
-  if defined? VagrantPlugins::HostsUpdater
-    config.hostsupdater.aliases = domains_array
-  end
-
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
@@ -55,6 +51,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.vm.provision "shell" do |s|
     s.path = "provisioning/grafana.sh"
+    s.keep_color = true
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "provisioning/security.sh"
     s.keep_color = true
   end
 
